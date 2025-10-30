@@ -1,7 +1,10 @@
-Astro theme: (https://github.com/SlateDesign/slate-blog)
+Astro theme: https://github.com/SlateDesign/slate-blog
 
-Hosting at Cloudflare Pages
-(joeffrey-wong-astro-blog.pag)
+Hosting at Cloudflare Pages: https://joeffrey-wong-astro-blog.pages.dev/
+
+
+![image](/slate-blog/public/Screenshot%202025-10-30%20191736.png)
+
 
 # Usage
 
