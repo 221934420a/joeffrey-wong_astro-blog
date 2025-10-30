@@ -42,6 +42,13 @@ function generateAstroConfigure() {
         tailwindcss(),
       ],
     },
+    i18n: {
+      defaultLocale: 'en-US',
+      locales: ['en-US', 'zh-CN'],
+      // routing: {
+      //   prefixDefaultLocale: true, 
+      // }
+    },
   };
 
   if (slateConfig.lastModified) {

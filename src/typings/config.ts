@@ -33,6 +33,7 @@ type SocialLinkIcon =
   | 'threads'
   | 'x'
   | 'youtube'
+  | 'linkedin'
   | { svg: string };
 
 export interface SlateConfig {
@@ -53,6 +54,7 @@ export interface SlateConfig {
   /** Whether to show reading time */
   readTime?: boolean;
   /** Whether to show last modified time */
+  cv?: string;
   lastModified?: boolean;
   /** Docsearch configuration */
   algolia?: {

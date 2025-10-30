@@ -2,8 +2,8 @@
 title: 'My First Post'
 description: 'My first post using Hugo'
 pubDate: '2024-11-18T18:56:28Z'
-# draft: false
-tags: ['Posts'] 
+tags: 
+    - Posts
 ---
 
 
