@@ -19,13 +19,23 @@ const { avatar = slateConfig.avatar } = Astro.props;
       />
       <span>{slateConfig.title}</span>
     </div>
-    <a
-      href={slateConfig.cv}
-      target="_blank"
-      rel="noopener noreferrer"
-      class="rounded-md bg-slate3 px-4 py-2 text-sm font-medium text-slate12 transition-colors hover:bg-slate4"
-    >
-      CV
-    </a>
+    <div class="flex items-center gap-2">
+      <a
+        href={slateConfig.cv}
+        target="_blank"
+        rel="noopener noreferrer"
+        class="rounded-md bg-slate3 px-4 py-2 text-sm font-medium text-slate12 transition-colors hover:bg-slate4"
+      >
+        CV
+      </a>
+      <a
+        href={slateConfig.rirekisyo}
+        target="_blank"
+        rel="noopener noreferrer"
+        class="rounded-md bg-slate3 px-4 py-2 text-sm font-medium text-slate12 transition-colors hover:bg-slate4"
+      >
+        履歴書
+      </a>
+    </div>
   </div>
 </header>

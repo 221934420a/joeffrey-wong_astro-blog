@@ -55,6 +55,7 @@ export interface SlateConfig {
   readTime?: boolean;
   /** Whether to show last modified time */
   cv?: string;
+  rirekisyo?: string;
   lastModified?: boolean;
   /** Docsearch configuration */
   algolia?: {

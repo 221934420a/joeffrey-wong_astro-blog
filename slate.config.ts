@@ -12,6 +12,7 @@ export default defineConfig({
   lastModified: true,
   readTime: true,
   cv: '/Joeffrey Wong-CV.pdf',
+  rirekisyo: '/黃文冲（ジョフリー　ウォング）履歴書 ブログ用.pdf',
   footer: {
     copyright: '© 2025 Slate Design',
   },
