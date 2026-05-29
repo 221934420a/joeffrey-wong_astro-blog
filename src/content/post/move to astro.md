@@ -3,7 +3,7 @@ title:  Move to Astro
 description: 'Try to move my prosonal website to Astro'
 pubDate:  2025-10-30
 tags:
-    - AStro
+    - Astro
     - Blog
 ---
 
