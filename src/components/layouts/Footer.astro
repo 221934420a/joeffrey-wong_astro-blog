@@ -4,17 +4,26 @@ import type { ThemeOptions } from '@/typings/config';
 import ThemeSelect from '@/components/theme-select';
 import SocialLinks from '@/components/social-links';
 import slateConfig from '~@/slate.config';
-import { getYuenLongWeather } from "../weather/YuenLongWeather";
-import { getDoncasterWeather } from "../weather/DoncasterWeather";
-import { getTamsuiWeather } from "../weather/TamsuiWeather";
+
+import { getWeather } from "../weather/getWeather";
+
 interface Props {
   copyright?: string;
 }
 
 const { copyright = stateConfig.footer?.copyright } = Astro.props;
-const YuenLongWeather = await getYuenLongWeather();
-const DoncasterWeather = await getDoncasterWeather();
-const TamsuiWeather = await getTamsuiWeather();
+
+//get weather data for Doncaster, Tamsui, and Yuen Long
+const doncaster = await getWeather(53.5228, -1.1285);
+const tamsui = await getWeather(25.1719, 121.4434);
+const yuenLong = await getWeather(22.4445, 114.0222);
+
+const cities = [
+  { name: "Doncaster", data: doncaster },
+  { name: "Tamsui", data: tamsui },
+  { name: "Yuen Long", data: yuenLong },
+];
+
 
 ---
 
@@ -23,9 +32,13 @@ const TamsuiWeather = await getTamsuiWeather();
   <div class="mt-4 flex items-center justify-between">
     <div>
       <div class="text-slate8 text-sm">{copyright}</div>
-      {YuenLongWeather.temp && <div class="text-slate8 text-sm">元朗公園 {YuenLongWeather.temp}℃</div>}
-      {DoncasterWeather.temp && <div class="text-slate8 text-sm">Doncaster {DoncasterWeather.temp}℃</div>}
-      {TamsuiWeather.temp && <div class="text-slate8 text-sm">淡水 {TamsuiWeather.temp}℃</div>}
+      {cities.map((city) =>
+        city.data && (
+          <div class="text-slate8 text-sm">
+            {city.name} {city.data.temp}℃
+          </div>
+        )
+      )}
     </div>
     {/* S theme selection */}
     {(stateConfig.theme as ThemeOptions).enableUserChange && <ThemeSelect  client:visible />}

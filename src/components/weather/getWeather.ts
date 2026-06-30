@@ -1,6 +1,9 @@
-export async function getTamsuiWeather() {
+export async function getWeather(
+    latitude: number,
+    longitude: number
+) {
     const res = await fetch(
-        "https://api.open-meteo.com/v1/forecast?latitude=25.1719&longitude=121.4434&current=temperature_2m,relative_humidity_2m,weather_code"
+        `https://api.open-meteo.com/v1/forecast?latitude=${latitude}&longitude=${longitude}&current=temperature_2m,relative_humidity_2m,weather_code`
     );
 
     const data = await res.json();
