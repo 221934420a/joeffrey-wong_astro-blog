@@ -4,20 +4,31 @@ import type { ThemeOptions } from '@/typings/config';
 import ThemeSelect from '@/components/theme-select';
 import SocialLinks from '@/components/social-links';
 import slateConfig from '~@/slate.config';
-
+import { getYuenLongWeather } from "../weather/YuenLongWeather";
+import { getDoncasterWeather } from "../weather/DoncasterWeather";
+import { getTamsuiWeather } from "../weather/TamsuiWeather";
 interface Props {
   copyright?: string;
 }
 
 const { copyright = stateConfig.footer?.copyright } = Astro.props;
+const YuenLongWeather = await getYuenLongWeather();
+const DoncasterWeather = await getDoncasterWeather();
+const TamsuiWeather = await getTamsuiWeather();
+
 ---
 
 <footer class="mt-auto">
   {!!slateConfig.socialLinks && <SocialLinks client:visible />}
   <div class="mt-4 flex items-center justify-between">
-    <div class="text-slate8 text-sm">{copyright}</div>
+    <div>
+      <div class="text-slate8 text-sm">{copyright}</div>
+      {YuenLongWeather.temp && <div class="text-slate8 text-sm">元朗公園 {YuenLongWeather.temp}℃</div>}
+      {DoncasterWeather.temp && <div class="text-slate8 text-sm">Doncaster {DoncasterWeather.temp}℃</div>}
+      {TamsuiWeather.temp && <div class="text-slate8 text-sm">淡水 {TamsuiWeather.temp}℃</div>}
+    </div>
     {/* S theme selection */}
-    {(stateConfig.theme as ThemeOptions).enableUserChange && <ThemeSelect client:visible />}
+    {(stateConfig.theme as ThemeOptions).enableUserChange && <ThemeSelect  client:visible />}
     {/* E theme selection */}
   </div>
 </footer>
